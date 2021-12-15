@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proyecto 1 </title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="text-center">{{ message }}</h1>
+      <h2 class="text-center">{{ message1 }}</h2>
+      <br />
+      <ul>
+        <li v-for="(index) in numbers_list">
+          {{ index.number }} : {{ index.multiple }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </body>
+</html>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      numbers_list: [],
+      message: "Proyecto 1",
+      message1:"Pregunta N° 1 realizada con vue",
+    },
+    mounted() {
+
+      for (var i = 3; i < 103; i++) {
+        let result = this.check_three_or_five(i);
+        if (result != 0) {
+          this.numbers_list.push({ number: i, multiple: result });
+        }
+      }
+      
+    },
+    methods: {
+      check_three_or_five(number) {
+        if (number % 3 === 0  && number % 5 === 0) {
+          return 3 y 5 ;
+        } else  if (number % 3 === 0) {
+          return 3;
+        } else if (number % 5 === 0) {
+          return 5;
+        }else {
+          return 0;
+        }
+      },
+    },
+  });
+</script>
